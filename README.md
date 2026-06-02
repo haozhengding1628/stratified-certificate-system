@@ -42,6 +42,29 @@ python -m pip install -e .
 
 Runtime uses only the Python standard library. Tests use `pytest`.
 
+## Mathematical Software Boundary
+
+This toolkit does not require a computer algebra system to run. It records and
+checks the evidence ledger around a classification project; the mathematical
+computations themselves may be produced elsewhere.
+
+When a row depends on external computation, record the software as metadata in
+the certificate. Typical sources include SageMath, Magma, GAP, Singular,
+Macaulay2, PARI/GP, Mathematica, or project-specific scripts. The public ledger
+should capture enough information for review:
+
+- software name and exact version;
+- the certificate type, such as rank, kernel, saturation, normal form,
+  Groebner basis, finite-field check, or independent validation;
+- a short input/output summary;
+- the artifact path or public reproduction note;
+- the bridge from the computation to the mathematical claim.
+
+Do not publish private datasets, unpublished tables, raw logs, or
+paper-specific computation files in this repository. If a certificate depends on
+private or paper-specific material, keep that material outside the public repo
+and reference only a sanitized summary.
+
 ## Quick Start
 
 Create a starter project:
@@ -129,12 +152,19 @@ calculation should not be treated as self-explanatory.
   "kind": "rank",
   "claim": "toy orbit matrix has full rank on the generic open stratum",
   "support": "theorem",
-  "artifact": "certificates/generic-rank.json"
+  "artifact": "certificates/generic-rank.json",
+  "software": {
+    "name": "SageMath",
+    "version": "record-exact-version",
+    "role": "rank computation"
+  }
 }
 ```
 
 Use `support` to distinguish theorem evidence from guardrails, validation, and
-paper-support material.
+paper-support material. The `software` object is optional metadata; use it when
+the certificate was produced or checked with a named mathematical software
+system.
 
 ## Development
 
