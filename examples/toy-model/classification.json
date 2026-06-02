@@ -1,0 +1,62 @@
+{
+  "certificates": [
+    {
+      "artifact": "certificates/generic-rank.json",
+      "claim": "toy orbit matrix has full rank on the generic open stratum",
+      "id": "generic-rank",
+      "kind": "rank",
+      "support": "theorem"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "boundary-kernel",
+      "next_action": "produce a localized rank or fullspan certificate",
+      "obligation": "compute quotient singular kernel on V(delta)",
+      "status": "open"
+    }
+  ],
+  "guardrails": [
+    "finite-field enumeration is validation unless the theorem is finite-field",
+    "each theorem row must name the stratum, certificate, and bridge implication",
+    "artifact-map rows are not reader-independent quotient rows until quotient data is printed"
+  ],
+  "privacy": {
+    "blocked_terms": [
+      "private-project-name",
+      "private-dataset-token"
+    ]
+  },
+  "project": {
+    "field": "algebraically closed field",
+    "name": "Toy certificate classification",
+    "objective": "classify simple quotients in a finite toy model"
+  },
+  "schema_version": "1.0",
+  "strata": [
+    {
+      "bridge": "rank certificate implies every singular direction spans the quotient",
+      "certificates": [
+        "generic-rank"
+      ],
+      "condition": "D(delta)",
+      "id": "generic-open",
+      "quotient": {
+        "dimension": 4,
+        "kernel": "0"
+      },
+      "status": "theorem"
+    },
+    {
+      "bridge": "missing quotient-kernel or fullspan certificate",
+      "certificates": [],
+      "condition": "V(delta)",
+      "id": "closed-boundary",
+      "quotient": {
+        "dimension": null,
+        "kernel": "unknown"
+      },
+      "status": "open"
+    }
+  ]
+}

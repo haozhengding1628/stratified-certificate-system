@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stratified-certificate-system"
+version = "0.1.0"
+description = "A source-agnostic toolkit for stratified, certificate-driven classification workflows."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Perry Chuh" }
+]
+keywords = [
+  "classification",
+  "certificates",
+  "computer-algebra",
+  "proof-audit",
+  "stratification"
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+[project.scripts]
+stratcert = "stratcert.cli:main"
+
+[tool.setuptools]
+packages = ["stratcert"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
