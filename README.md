@@ -32,6 +32,11 @@ logs, parameter tables, or unpublished classification artifacts.
 - A report compiler that turns the JSON ledger into a markdown status report.
 - A CLI that can initialize, validate, and report on a generic project.
 
+## Methodology
+
+For a source-agnostic explanation of where this method can be reused, see
+[`docs/methodology/reuse-map.md`](docs/methodology/reuse-map.md).
+
 ## Install
 
 From a checkout:
